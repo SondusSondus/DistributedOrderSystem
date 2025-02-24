@@ -1,6 +1,4 @@
-
-
-### **📌 Distributed Order Processing System**
+# 📌 Distributed Order Processing System
 🚀 **A scalable, event-driven microservices architecture built using .NET 9 and deployed on Azure Kubernetes Service (AKS).**  
 
 ---
@@ -139,6 +137,4 @@ DistributedOrderSystem/
 3. **Commit changes** (`git commit -m "Added feature X"`)
 4. **Push the branch** (`git push origin feature/your-feature`)
 5. **Open a Pull Request**
-
----
 
