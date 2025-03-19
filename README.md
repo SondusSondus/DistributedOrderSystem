@@ -6,7 +6,7 @@
 ## **📖 Overview**
 The **Distributed Order Processing System** is a cloud-native microservices-based solution designed for **high availability, scalability, and resilience**. It enables seamless **order management, inventory tracking, payment processing, and notifications** using an **event-driven architecture**.
 
-This system is built using **.NET 9, Entity Framework Core, RabbitMQ/Kafka, and Azure Kubernetes Service (AKS)** to ensure **real-time communication** between services.
+This system is built using **.NET 9, Minimal APIs, RabbitMQ/Kafka, and Azure Kubernetes Service (AKS)** to ensure **real-time communication** between services.
 
 ---
 
@@ -16,10 +16,10 @@ The system follows the **microservices architecture** pattern, enabling **indepe
 ### **🏗 Microservices Overview**
 | Microservice | Responsibility |
 |-------------|--------------|
-| **Order Service** | Manages order creation, tracking, and status updates. |
-| **Inventory Service** | Checks stock availability and updates inventory. |
-| **Payment Service** | Handles payments via an external payment gateway. |
-| **Notification Service** | Sends order confirmation via email/SMS. |
+| **Order Service** | Manages order creation, tracking, and status updates using Minimal APIs. |
+| **Inventory Service** | Checks stock availability and updates inventory using Minimal APIs. |
+| **Payment Service** | Handles payments via an external payment gateway using Minimal APIs. |
+| **Notification Service** | Sends order confirmation via email/SMS using Minimal APIs. |
 | **API Gateway (Ocelot)** | Routes external requests to microservices. |
 | **Message Broker (RabbitMQ/Kafka)** | Handles asynchronous communication between services. |
 
@@ -28,8 +28,8 @@ The system follows the **microservices architecture** pattern, enabling **indepe
 ## **📡 Tech Stack**
 | Component | Technology |
 |-----------|------------|
-| **Backend** | .NET 9 Web API, C# |
-| **Database** | SQL Server, Redis Cache |
+| **Backend** | .NET 9 Minimal APIs, C# |
+| **Database** | To be determined per microservice |
 | **Event Bus** | RabbitMQ / Kafka |
 | **API Gateway** | Ocelot |
 | **Authentication** | IdentityServer, OAuth 2.0 |
@@ -42,6 +42,8 @@ The system follows the **microservices architecture** pattern, enabling **indepe
 ## **📌 Key Features**
 ✅ **Scalable Microservices Architecture**  
 ✅ **Event-Driven Communication using RabbitMQ/Kafka**  
+✅ **Minimal APIs for Lightweight & High-Performance Endpoints**  
+✅ **API Versioning for Future Compatibility**  
 ✅ **API Gateway for Routing and Security**  
 ✅ **OAuth 2.0 Authentication & Role-Based Access Control (RBAC)**  
 ✅ **Resilient System with Circuit Breakers & Retry Mechanisms**  
@@ -56,7 +58,7 @@ Ensure you have the following installed:
 - **.NET 9 SDK** → [Download](https://dotnet.microsoft.com/download/dotnet/9.0)
 - **Docker & Docker Compose** → [Download](https://www.docker.com/products/docker-desktop)
 - **RabbitMQ / Kafka** → Installed via Docker
-- **SQL Server** → [Download](https://www.microsoft.com/en-us/sql-server)
+- **SQL Server (or other determined databases)** → [Download](https://www.microsoft.com/en-us/sql-server)
 
 ### **2️⃣ Clone the Repository**
 ```sh
@@ -103,9 +105,9 @@ kubectl logs -f <pod-name>
 DistributedOrderSystem/
 │-- src/
 │   ├── OrderService/
-│   │   ├── OrderService.API/ (Controllers & API Logic)
-│   │   ├── OrderService.Domain/ (Entities & Business Logic)
-│   │   ├── OrderService.Infrastructure/ (Database & Repositories)
+│   │   ├── OrderService.API/ (Minimal APIs & Logic)
+│   │   ├── OrderService.Endpoints/ (API Routes & Versioning)
+│   │   ├── OrderService.Services/ (Business Logic)
 │   ├── InventoryService/
 │   ├── PaymentService/
 │   ├── NotificationService/
@@ -122,8 +124,8 @@ DistributedOrderSystem/
 ---
 
 ## **🚀 Roadmap**
-- [x] Set up .NET 9 microservices structure
-- [x] Implement Entity Framework Core & SQL Server
+- [x] Set up .NET 9 microservices structure with Minimal APIs
+- [x] Implement API Versioning for scalability
 - [x] Set up RabbitMQ/Kafka for Event-Driven Architecture
 - [ ] Implement API Gateway & Authentication
 - [ ] Deploy to Azure Kubernetes Service (AKS)
@@ -138,3 +140,4 @@ DistributedOrderSystem/
 4. **Push the branch** (`git push origin feature/your-feature`)
 5. **Open a Pull Request**
 
+---
